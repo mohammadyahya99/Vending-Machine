@@ -1,0 +1,60 @@
+
+  .moneySlots-head {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+  
+    justify-items: center;
+  }
+ 
+ 
+  .clear {
+    width: 75px;
+    margin-left: 100px;
+    cursor: pointer;
+    background-color: rgb(192, 189, 189);
+    border: none;
+    width: 100px;
+    border-radius: 15px;
+    
+  }
+  .clear:hover {
+    background-color: red;
+  }
+  .ok {
+    border-radius: 15px;
+    width: 75px;
+    margin-left: 100px;
+    cursor: pointer;
+    background-color: rgb(192, 189, 189);
+    border: none;
+    width: 100px;
+    
+  }
+  .ok:hover {
+    background-color: rgb(18, 161, 18);
+  }
+  .coinsPayment {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: gold;
+    cursor: pointer;
+  }
+  .notesPayment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: green;
+    cursor: pointer;
+  }
+  .creditPayment {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+    background-color: pink;
+  }
+ 

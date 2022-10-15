@@ -1,0 +1,88 @@
+.keypad {
+ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 30%;
+    justify-items: center;
+   
+  }
+
+  .choosenItem{
+    background-color: rgb(192, 189, 189);
+    width: 60px;
+    height: 30px;
+    margin-left: 20px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100px;
+    margin-top: -30px;
+  }
+  .thePrice {
+    margin-left: 50px;
+    background-color: rgb(192, 189, 189);
+    width: 60px;
+    height: 30px;
+    margin-left: 150px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100px;
+  }
+  h2{margin-left: 100px;}
+
+  #clear {
+    background-color: rgb(192, 189, 189);
+    margin-left: 50px;
+    width: 75px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+  }
+  #clear:hover {
+    background-color: #e92731;
+  }
+  #ok {
+    background-color: rgb(192, 189, 189);
+    border: none;
+    border-radius: 15px;
+    margin-left: 28px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100px;
+  }
+  #ok:hover {
+    background-color: rgb(18, 161, 18);
+  }
+  .key{
+    margin-top: 0px;
+    margin-left: 550px;
+    gap: 100px;
+    border: 1px solid rgb(12, 12, 12);
+    width: 300px;
+     
+  }
+  .lettersList {
+    margin-left: 50px;
+    font-size: larger;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid rgb(12, 12, 12);
+  }
+  .numbersLest {
+    margin-left: 50px;
+    font-size: larger;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid rgb(12, 12, 12);
+  }
+  .buy{
+    margin-top: -200px;
+    width: 500px;
+  }
