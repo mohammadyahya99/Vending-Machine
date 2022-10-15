@@ -5,12 +5,13 @@ class MoneySlots extends Component {
     constructor() {
         super();
         this.state = {
-          coinsType: ["10c", "20c", "50c", "1$"],
-          notesType: ["20$", "50$"],
-          enteredMoney: 0,
+          choosenMoney: 0,
           changedMoney: 0,
-          changedMoneyState: 0,
-          changeMoneyTemp: 0,
+          changeMoneyData: 0,
+          coinsType: ["10c", "20c", "50c", "1$"],
+          notesType: ["20$", "50$"],  
+          moneyState: 0,
+          
         };
       }
     
@@ -18,20 +19,20 @@ class MoneySlots extends Component {
       enteredCredit = () => {
         let price = this.props.price;
     
-        if (this.state.changedMoneyState === 1) {
+        if (this.state.moneyState === 1) {
           alert(
             "Enough money,Press on ok button please"
           );
           return 0;
         }
         this.setState({
-          enteredMoney: price,
+          choosenMoney: price,
           changedMoney: 0,
-          changedMoneyState: 1,
+          moneyState: 1,
         });
       };
       enteredMoney = (e) => {
-        if (this.state.changedMoneyState === 1) {
+        if (this.state.moneyState === 1) {
           alert(
             " Press On Ok button Please"
           );
@@ -43,38 +44,38 @@ class MoneySlots extends Component {
         if (typeOfCoin === "c") {
           tempNum /= 100;
         }
-        tempNum = tempNum + this.state.enteredMoney;
+        tempNum = tempNum + this.state.choosenMoney;
         if (tempNum >= price) {
           this.setState({
-            enteredMoney: tempNum,
+            choosenMoney: tempNum,
             changedMoney: tempNum - price,
-            changedMoneyState: 1,
+            moneyState: 1,
           });
         } else {
           this.setState({
-            enteredMoney: tempNum,
-            changedMoneyState: -1,
+            choosenMoney: tempNum,
+            moneyState: -1,
           });
         }
       };
       returnMoney = () => {
         let changedMoney = this.state.changedMoney;
-        let changeMoneyTemp = changedMoney;
+        let changeMoneyData = changedMoney;
         let changeMoneyStringTemp = "";
-        let newCoins = [50, 20, 1, 0.5, 0.2, 0.1];
-        for (let i = 0; i < newCoins.length; i++) {
-          if (changeMoneyTemp - newCoins[i] >= 0) {
+        let coinsArr = [50, 20, 1, 0.5, 0.2, 0.1];
+        for (let i = 0; i < coinsArr.length; i++) {
+          if (changeMoneyData - coinsArr[i] >= 0) {
             if (changeMoneyStringTemp.length === 0)
-              changeMoneyStringTemp += newCoins[i] + " ";
-            else changeMoneyStringTemp += "+ " + newCoins[i];
-            changeMoneyTemp -= newCoins[i];
+              changeMoneyStringTemp += coinsArr[i] + " ";
+            else changeMoneyStringTemp += "+ " + coinsArr[i];
+            changeMoneyData -= coinsArr[i];
             i--;
           }
         }
         return changeMoneyStringTemp;
       };
     
-      purchase = () => {
+      buyingProcess = () => {
         let changeMoney = this.state.changedMoney;
         this.returnMoney();
         if (changeMoney != 0)
@@ -85,7 +86,7 @@ class MoneySlots extends Component {
         this.clear();
       };
       clear = () => {
-        this.setState({ enteredMoney: 0, changedMoney: 0, changedMoneyState: 0 });
+        this.setState({ choosenMoney: 0, changedMoney: 0, moneyState: 0 });
         this.props.clear();
       };
       render() {
@@ -94,17 +95,17 @@ class MoneySlots extends Component {
             <div className="moneyContainer">
                 <h3>Choose a payment method, please</h3>
               <div className="sellState">
-              {this.state.changedMoneyState < 0 ? (
-                <p>The Money you entered is not enough</p>
-              ) : (<div> <h3>The amount paid: {this.state.enteredMoney}</h3>
+              {this.state.moneyState < 0 ? (
+                <h2 className='errorMassege'> Not enough Money</h2>
+              ) : (<div> <h3>The amount paid: {this.state.choosenMoney}</h3>
               </div>
                
               )}
             
             </div>
-            {this.state.changedMoneyState > 0 ? (
-              <div className="purchaseState">
-                <button className="ok" onClick={this.purchase}>
+            {this.state.moneyState > 0 ? (
+              <div className="buyingProcess">
+                <button className="ok" onClick={this.buyingProcess}>
                   Ok
                 </button>
                 <button className="clear" onClick={this.clear}>
